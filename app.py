@@ -11,7 +11,7 @@ st.title("陽明交大附中 - xx導覽")
 try:
 	with open('tour.json', 'r', encoding='utf-8') as f:
 		context_data=json.load(f)
-    	context_text = json.dumps(context_data, ensure_ascii=False)
+    	context_text=json.dumps(context_data, ensure_ascii=False)
 except FileNotFoundError:
 	st.error("找不到 tour.json 檔案")
 	st.stop()
