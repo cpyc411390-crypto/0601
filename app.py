@@ -22,7 +22,7 @@ except Exception as e:
 # 初始化 API 與對話
 if "gemini_client" not in st.session_state:
 	try:
-    	api_key = st.secrets["GEMINI_API_KEY"]
+		api_key = st.secrets["GEMINI_API_KEY"]
 	except KeyError:
     	st.error("未找到 GEMINI_API_KEY")
     	st.stop()
