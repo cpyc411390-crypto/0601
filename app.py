@@ -24,7 +24,7 @@ if "gemini_client" not in st.session_state:
 	try:
 		api_key = st.secrets["GEMINI_API_KEY"]
 	except KeyError:
-    	st.error("未找到 GEMINI_API_KEY")
+		st.error("未找到 GEMINI_API_KEY")
     	st.stop()
  
 	client = genai.Client(api_key=api_key)
