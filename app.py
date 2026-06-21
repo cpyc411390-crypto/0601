@@ -69,10 +69,10 @@ with st.spinner("處理中"):
 		response = st.session_state.chat_session.send_message(prompt)
 		response_text = response.text
 		
-			st.chat_message("assistant").write(response_text)
-			st.session_state.messages.append({"role": "assistant", "content": response_text})
+		st.chat_message("assistant").write(response_text)
+		st.session_state.messages.append({"role": "assistant", "content": response_text})
         	
-		except Exception as e:
-			st.error(f"對話發生異常：{e}")
-			st.info("可能是 API 或模型限制")
+	except Exception as e:
+		st.error(f"對話發生異常：{e}")
+		st.info("可能是 API 或模型限制")
 
