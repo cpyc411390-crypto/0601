@@ -68,7 +68,7 @@ with st.spinner("處理中"):
 	try:
 		response = st.session_state.chat_session.send_message(prompt)
 		response_text = response.text
-    	
+		
 			st.chat_message("assistant").write(response_text)
 			st.session_state.messages.append({"role": "assistant", "content": response_text})
         	
