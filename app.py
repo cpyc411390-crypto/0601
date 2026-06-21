@@ -57,22 +57,22 @@ if "gemini_client" not in st.session_state:
 # 顯示歷史紀錄
 for msg in st.session_state.messages:
 	with st.chat_message(msg["role"]):
-    	st.write(msg["content"])
+		st.write(msg["content"])
  
 # 處理輸入
 if prompt := st.chat_input("想問什麼事"):
 	st.chat_message("user").write(prompt)
 	st.session_state.messages.append({"role": "user", "content": prompt})
 
- with st.spinner("處理中"):
-    	try:
-        	response = st.session_state.chat_session.send_message(prompt)
-        	response_text = response.text
+with st.spinner("處理中"):
+	try:
+		response = st.session_state.chat_session.send_message(prompt)
+		response_text = response.text
+    	
+			st.chat_message("assistant").write(response_text)
+			st.session_state.messages.append({"role": "assistant", "content": response_text})
         	
-        	st.chat_message("assistant").write(response_text)
-        	st.session_state.messages.append({"role": "assistant", "content": response_text})
-        	
-    	except Exception as e:
-        	st.error(f"對話發生異常：{e}")
-        	st.info("可能是 API 或模型限制")
+		except Exception as e:
+			st.error(f"對話發生異常：{e}")
+			st.info("可能是 API 或模型限制")
 
